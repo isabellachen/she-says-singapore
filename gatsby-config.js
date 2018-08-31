@@ -18,12 +18,12 @@ module.exports = {
         accessToken: contentful.accessToken,
       },
     },
-    // {
-    //   resolve: 'gatsby-source-eventbrite',
-    //   options: {
-    //     organizationId: eventbrite.organizationId,
-    //     accessToken: eventbrite.accessToken,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-eventbrite',
+      options: {
+        organizationId: eventbrite.organizationId,
+        accessToken: eventbrite.accessToken,
+      },
+    },
   ],
 }
