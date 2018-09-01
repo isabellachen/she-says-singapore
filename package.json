@@ -10,11 +10,13 @@
     "gatsby-react-router-scroll": "next",
     "gatsby-source-contentful": "next",
     "gatsby-transformer-remark": "next",
+    "moment": "^2.22.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.3.4",
-    "rehype-react": "^3.0.3"
+    "rehype-react": "^3.0.3",
+    "styled-components": "^3.4.5"
   },
   "keywords": [
     "gatsby"
