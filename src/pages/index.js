@@ -1,11 +1,13 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
+import EventList from '../components/EventList'
 
 const IndexPage = ({ data }) => {
-  console.log(data)
+  const events = data.events.edges
   return (
     <div>
+      <EventList events={events} />
       <h1>Hi people</h1>
       <p>Welcome to your new Gatsby site.</p>
       <p>Now go build something great.</p>
@@ -19,15 +21,12 @@ export default IndexPage
 export const homePageQuery = graphql`
   query IndexQuery {
     ...siteMetaQuery
-    allEventbriteEvents(filter: { status: { eq: "live" } }) {
+    events: allEventbriteEvents(filter: { status: { eq: "live" } }) {
       edges {
         node {
           ...eventFields
         }
       }
     }
-    # eventz: contentfulEvent(upcoming: { eq: true }) {
-    #   ...eventFields
-    # }
   }
 `

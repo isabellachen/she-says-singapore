@@ -14,26 +14,27 @@ export const siteMetaQuery = graphql`
 export const eventQuery = graphql`
   fragment eventFields on EventbriteEvents {
     name {
-      html
+      text
+    }
+    start {
+      local
+    }
+    end {
+      local
+    }
+    description {
+      text
+    }
+    status
+    url
+    venue: venue__NODE {
+      name
+      address {
+        address_1
+        address_2
+        postal_code
+        city
+      }
     }
   }
 `
-
-// export const eventQuery = graphql`
-//   fragment eventFields on ContentfulEvent {
-//     title
-//     date
-//     location {
-//       lon
-//       lat
-//     }
-//     description {
-//       description
-//     }
-//     body {
-//       data: childMarkdownRemark {
-//         htmlAst
-//       }
-//     }
-//   }
-// `
