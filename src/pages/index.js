@@ -19,13 +19,15 @@ export default IndexPage
 export const homePageQuery = graphql`
   query IndexQuery {
     ...siteMetaQuery
-    eventbriteEvents (status: {eq: "live"}) {
-      name {
-        text
+    allEventbriteEvents(filter: { status: { eq: "live" } }) {
+      edges {
+        node {
+          ...eventFields
+        }
       }
     }
-    eventz: contentfulEvent(upcoming: { eq: true }) {
-      ...eventFields
-    }
+    # eventz: contentfulEvent(upcoming: { eq: true }) {
+    #   ...eventFields
+    # }
   }
 `

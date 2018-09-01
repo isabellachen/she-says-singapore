@@ -11,22 +11,29 @@ export const siteMetaQuery = graphql`
   }
 `
 
-
 export const eventQuery = graphql`
-  fragment eventFields on ContentfulEvent {
-    title
-    date
-    location {
-      lon
-      lat
-    }
-    description {
-      description
-    }
-    body {
-      data: childMarkdownRemark {
-        htmlAst
-      }
+  fragment eventFields on EventbriteEvents {
+    name {
+      html
     }
   }
 `
+
+// export const eventQuery = graphql`
+//   fragment eventFields on ContentfulEvent {
+//     title
+//     date
+//     location {
+//       lon
+//       lat
+//     }
+//     description {
+//       description
+//     }
+//     body {
+//       data: childMarkdownRemark {
+//         htmlAst
+//       }
+//     }
+//   }
+// `
