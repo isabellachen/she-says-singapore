@@ -1,5 +1,5 @@
 const path = require('path')
-// const graphql = require('gatsby').graphql
+// const {graphql} = require('gatsby')
 
 const blogPostTemplate = path.resolve('src/templates/blog-post.js')
 
