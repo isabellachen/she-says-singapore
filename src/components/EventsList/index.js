@@ -9,7 +9,6 @@ export default class EventList extends Component {
   }
   
   render() {
-    console.log(this.props.events)
     return <div>{this.renderEventItems(this.props.events)}</div>
   }
 }

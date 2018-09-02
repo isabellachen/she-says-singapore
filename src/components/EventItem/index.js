@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import rehypeReact from 'rehype-react'
+import React from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
 
