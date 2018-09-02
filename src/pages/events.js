@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import EventList from '../components/EventsList'
 
 const getEvents = (status, events) => {
@@ -11,9 +12,9 @@ const EventsPage = ({ data }) => {
   const events = data.events.edges
   return (
     <div>
-      <EventList events={getEvents("live", events)} status={"live"} />
+      <EventList events={getEvents('live', events)} status={'live'} />
       <h1>completed events</h1>
-      <EventList events={getEvents("completed", events)} status={"completed"} />
+      <EventList events={getEvents('completed', events)} status={'completed'} />
     </div>
   )
 }
