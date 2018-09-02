@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React from 'react'
 import EventList from '../components/EventsList'
 
 const getEvents = (status, events) => {
