@@ -7,7 +7,6 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 const FrontQuote = ({ about }) => {
-  console.log(about.description)
   const htmlAst = about.description.childMarkdownRemark.htmlAst
   return <div>{htmlAst && renderAst(htmlAst)}</div>
 }
