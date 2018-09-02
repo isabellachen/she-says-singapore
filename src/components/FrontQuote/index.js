@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import rehypeReact from 'rehype-react'
 
 const renderAst = new rehypeReact({
@@ -12,3 +13,15 @@ const FrontQuote = ({ about }) => {
 }
 
 export default FrontQuote
+
+export const FrontQuoteFields = graphql`
+  fragment frontQuoteFields on ContentfulPage {
+    title
+    slug
+    description {
+      childMarkdownRemark {
+        htmlAst
+      }
+    }
+  }
+`

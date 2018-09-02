@@ -27,7 +27,7 @@ const IndexPage = ({ data, location }) => {
       />
       <EventList events={eventsEdges} status={'live'} />
       <FrontQuote about={about} />
-      <FeaturesList features={features}/>
+      <FeaturesList features={features} />
       <Link to="/page-2/">Go to page 2</Link>
     </div>
   )
@@ -46,13 +46,7 @@ export const homePageQuery = graphql`
       }
     }
     about: contentfulPage(title: { eq: "About Us" }) {
-      title
-      slug
-      description {
-        childMarkdownRemark {
-          htmlAst
-        }
-      }
+      ...frontQuoteFields
     }
     features: allContentfulFeature {
       edges {
