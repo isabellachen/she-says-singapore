@@ -15,7 +15,6 @@ const renderFeatures = edges => {
 }
 
 function FeaturesList({ features }) {
-  console.log(features)
   return (
     <StyledFeaturesList>
       {features && renderFeatures(features.edges)}
