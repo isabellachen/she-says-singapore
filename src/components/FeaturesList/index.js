@@ -1,19 +1,25 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import styled from 'styled-components'
+
+import FeatureItem from '../FeatureItem'
+
+const StyledFeaturesList = styled.div`
+  display: flex;
+`
 
 const renderFeatures = edges => {
-  return edges.map(edge => {
-    return <Img sizes={edge.node.heroImage.fluid} />
+  return edges.map(({ node }) => {
+    return <FeatureItem key={node.slug} feature={node} />
   })
 }
 
 function FeaturesList({ features }) {
   console.log(features)
   return (
-    <div>
+    <StyledFeaturesList>
       {features && renderFeatures(features.edges)}
-    </div>
+    </StyledFeaturesList>
   )
 }
 
