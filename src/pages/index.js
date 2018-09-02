@@ -6,6 +6,7 @@ import Head from '../components/Head'
 import EventList from '../components/EventsList'
 import FrontQuote from '../components/FrontQuote'
 import FeaturesList from '../components/FeaturesList'
+import BlogsList from '../components/BlogsList'
 
 //pull in Page- about us
 //pull in features
@@ -15,7 +16,7 @@ import FeaturesList from '../components/FeaturesList'
 
 const IndexPage = ({ data, location }) => {
   console.log(data)
-  const { site, events, about, features } = data
+  const { site, events, about, features, blogs } = data
   const eventsEdges = events.edges
   return (
     <div>
@@ -28,6 +29,7 @@ const IndexPage = ({ data, location }) => {
       <EventList events={eventsEdges} status={'live'} />
       <FrontQuote about={about} />
       <FeaturesList features={features} />
+      <BlogsList blogs={blogs} />
       <Link to="/page-2/">Go to page 2</Link>
     </div>
   )
@@ -52,6 +54,13 @@ export const homePageQuery = graphql`
       edges {
         node {
           ...featureFields
+        }
+      }
+    }
+    blogs: allContentfulBlog {
+      edges {
+        node {
+          ...blogFields
         }
       }
     }
