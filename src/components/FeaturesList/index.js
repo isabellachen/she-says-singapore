@@ -2,11 +2,17 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+const renderFeatures = edges => {
+  return edges.map(edge => {
+    return <Img sizes={edge.node.heroImage.fluid} />
+  })
+}
+
 function FeaturesList({ features }) {
   console.log(features)
   return (
     <div>
-      <Img sizes={features.edges[1].node.heroImage.fluid} />
+      {features && renderFeatures(features.edges)}
     </div>
   )
 }
