@@ -5,6 +5,7 @@ import { graphql } from 'gatsby'
 import Head from '../components/Head'
 import EventList from '../components/EventsList'
 import FrontQuote from '../components/FrontQuote'
+import FeaturesList from '../components/FeaturesList'
 
 //pull in Page- about us
 //pull in features
@@ -26,7 +27,7 @@ const IndexPage = ({ data, location }) => {
       />
       <EventList events={eventsEdges} status={'live'} />
       <FrontQuote about={about} />
-      {/* <FeaturesList features={features}/> */}
+      <FeaturesList features={features}/>
       <Link to="/page-2/">Go to page 2</Link>
     </div>
   )
@@ -56,18 +57,7 @@ export const homePageQuery = graphql`
     features: allContentfulFeature {
       edges {
         node {
-          title
-          slug
-          description {
-            childMarkdownRemark {
-              htmlAst
-            }
-          }
-          heroImage {
-            fluid(maxWidth: 1280) {
-              ...GatsbyContentfulFluid
-            }
-          }
+          ...featureFields
         }
       }
     }
