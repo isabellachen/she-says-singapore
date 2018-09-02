@@ -12,10 +12,9 @@ import FrontQuote from '../components/FrontQuote'
 //link to about us
 //dynamically link to features
 
-
 const IndexPage = ({ data, location }) => {
   console.log(data)
-  const { site, events, about } = data
+  const { site, events, about, features } = data
   const eventsEdges = events.edges
   return (
     <div>
@@ -26,7 +25,8 @@ const IndexPage = ({ data, location }) => {
         description={site.meta.description}
       />
       <EventList events={eventsEdges} status={'live'} />
-      <FrontQuote about={about}/>
+      <FrontQuote about={about} />
+      {/* <FeaturesList features={features}/> */}
       <Link to="/page-2/">Go to page 2</Link>
     </div>
   )
@@ -50,6 +50,24 @@ export const homePageQuery = graphql`
       description {
         childMarkdownRemark {
           htmlAst
+        }
+      }
+    }
+    features: allContentfulFeature {
+      edges {
+        node {
+          title
+          slug
+          description {
+            childMarkdownRemark {
+              htmlAst
+            }
+          }
+          heroImage {
+            fluid(maxWidth: 1280) {
+              ...GatsbyContentfulFluid
+            }
+          }
         }
       }
     }
