@@ -1,14 +1,17 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
+
 import Head from '../components/Head'
 import EventList from '../components/EventsList'
+import FrontQuote from '../components/FrontQuote'
 
 //pull in Page- about us
 //pull in features
 //get gatsby node to render features and pages
 //link to about us
 //dynamically link to features
+
 
 const IndexPage = ({ data, location }) => {
   console.log(data)
@@ -23,7 +26,7 @@ const IndexPage = ({ data, location }) => {
         description={site.meta.description}
       />
       <EventList events={eventsEdges} status={'live'} />
-      {/* <Splash> */}
+      <FrontQuote about={about}/>
       <Link to="/page-2/">Go to page 2</Link>
     </div>
   )
@@ -46,7 +49,7 @@ export const homePageQuery = graphql`
       slug
       description {
         childMarkdownRemark {
-          html
+          htmlAst
         }
       }
     }
