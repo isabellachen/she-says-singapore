@@ -1,16 +1,17 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
+import Head from '../components/Head'
 import EventList from '../components/EventsList'
 
-const IndexPage = ({ data }) => {
-  const events = data.events.edges
+const IndexPage = ({ data, location }) => {
+  const { site, events } = data
+  const description = "She Says Singapore is the first of its kind in South East Asia"
+  const eventsEdges = events.edges
   return (
     <div>
-      <EventList events={events} status={"live"}/>
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
+      <Head site={site} pageTitle={'Home'} path={location.path} description={description} />
+      <EventList events={eventsEdges} status={'live'} />
       <Link to="/page-2/">Go to page 2</Link>
     </div>
   )
