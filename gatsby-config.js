@@ -3,7 +3,7 @@ const eventbrite = require('./private/conf.json').eventbrite
 
 module.exports = {
   siteMetadata: {
-    title: 'She Says | Singapore',
+    title: 'She Says - Singapore',
     description:
       'Singapore chapter of She Says, a network for the advancement of women in the creative tech industries.',
     url: 'https://shesays.sg',
