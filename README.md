@@ -12,7 +12,7 @@ The site uses Gatsby v2 and GraphQl, with the Contentful and Eventbrite APIs. To
 
 ### Installing the plugin
 
-`cd` into the plugins folder and clone the plugin. Add the [.babel-preset.js](https://gist.github.com/isabellachen/da18d33f170970b117934e620f3fd58d) file to the root and `npm i` to install dependencies. `npm run build` to transpile the src files, chucking them into the root of gatsby-source-eventrbite. Gatsby will look for plugin files in the root.
+`cd` into the plugins folder and clone the plugin as a [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules). Add the [.babel-preset.js](https://gist.github.com/isabellachen/da18d33f170970b117934e620f3fd58d) file to the root and `npm i` to install dependencies. `npm run build` to transpile the src files, chucking them into the root of gatsby-source-eventrbite. Gatsby will look for plugin files in the root.
 
 ### Setting up the project
 
