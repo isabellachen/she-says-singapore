@@ -8,9 +8,7 @@ const renderAst = new rehypeReact({
   components: {},
 }).Compiler
 
-const StyledFeatureItem = styled.div`
-  width: 500px;
-`
+const StyledFeatureItem = styled.div``
 
 function FeatureItem({ feature }) {
   const htmlAst = feature.description.childMarkdownRemark.htmlAst

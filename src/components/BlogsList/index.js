@@ -3,10 +3,7 @@ import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import BlogItem from '../BlogItem'
 
-const StyledBlogsList = styled.div`
-  display: flex;
-  flex-direction: column;
-`
+const StyledBlogsList = styled.div``
 
 const renderBlogs = edges => {
   console.log('renderblogs: ', edges)

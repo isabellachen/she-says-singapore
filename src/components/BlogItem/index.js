@@ -3,10 +3,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
 
-const StyledBlogItem = styled.div`
-  width: 800px;
-  border: 2px solid pink;
-`
+const StyledBlogItem = styled.div``
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
