@@ -95,12 +95,13 @@ class Nav extends Component {
 const IndexPage = ({ data, location }) => {
   const { site, events, about, features, blogs } = data
   const eventsEdges = events.edges
+  console.log('LOCATION: ', location)
   return (
     <MainContainer>
       <Head
         site={site}
         pageTitle={'Home'}
-        path={location.path}
+        path={location.pathname}
         description={site.meta.description}
       />
       <Nav />

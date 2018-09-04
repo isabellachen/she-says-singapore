@@ -6,6 +6,7 @@ export const siteMetaQuery = graphql`
       meta: siteMetadata {
         title
         description
+        url
       }
     }
   }
