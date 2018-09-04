@@ -9,6 +9,8 @@ import FrontQuote from '../components/FrontQuote'
 import FeaturesList from '../components/FeaturesList'
 import BlogsList from '../components/BlogsList'
 
+import Layout from '../components/Layout'
+
 injectGlobal`
   body {
     margin: 0;
@@ -58,8 +60,6 @@ const Menu = styled.div`
   }
 `
 
-//pull in Page- about us
-//pull in features
 //get gatsby node to render features and pages
 //link to about us
 //dynamically link to features
@@ -95,7 +95,6 @@ class Nav extends Component {
 const IndexPage = ({ data, location }) => {
   const { site, events, about, features, blogs } = data
   const eventsEdges = events.edges
-  console.log('LOCATION: ', location)
   return (
     <MainContainer>
       <Head
@@ -104,12 +103,13 @@ const IndexPage = ({ data, location }) => {
         path={location.pathname}
         description={site.meta.description}
       />
-      <Nav />
-      <EventList events={eventsEdges} status={'live'} />
-      <FrontQuote about={about} />
-      <FeaturesList features={features} />
-      <BlogsList blogs={blogs} />
-      <Link to="/page-2/">Go to page 2</Link>
+      <Layout>
+        <EventList events={eventsEdges} status={'live'} />
+        <FrontQuote about={about} />
+        <FeaturesList features={features} />
+        <BlogsList blogs={blogs} />
+        <Link to="/page-2/">Go to page 2</Link>
+      </Layout>
     </MainContainer>
   )
 }
