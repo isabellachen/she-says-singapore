@@ -13,7 +13,7 @@ export default class BlogPost extends Component {
   render() {
     const { data, location } = this.props
     const { blog, site } = data
-    const htmlAst = blog.body.childMarkdownRemark.htmlAst
+    const htmlAst = blog.body.markdown.htmlAst
     return (
       <Layout>
         <Head
@@ -29,6 +29,7 @@ export default class BlogPost extends Component {
   }
 }
 
+//fragment ...blogFields exported from BlogItem
 export const blogPostQuery = graphql`
   query blogPostQuery($slug: String!) {
     ...siteMetaQuery

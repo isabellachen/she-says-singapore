@@ -11,7 +11,7 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 const BlogItem = ({ blog }) => {
-  const htmlAst = blog.description.childMarkdownRemark.htmlAst
+  const htmlAst = blog.description.markdown.htmlAst
   return (
     <StyledBlogItem>
       <Img sizes={blog.heroImage.fluid} />
@@ -22,3 +22,30 @@ const BlogItem = ({ blog }) => {
 }
 
 export default BlogItem
+
+export const blogFields = graphql`
+  fragment blogFields on ContentfulBlog {
+    title
+    slug
+    publishDate
+    author {
+      name
+    }
+    description {
+      childMarkdownRemark {
+        excerpt
+        htmlAst
+      }
+    }
+    body {
+      markdown: childMarkdownRemark {
+        htmlAst
+      }
+    }
+    heroImage {
+      fluid(maxWidth: 1280) {
+        ...GatsbyContentfulFluid
+      }
+    }
+  }
+`

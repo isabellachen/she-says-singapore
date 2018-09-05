@@ -16,30 +16,3 @@ function BlogList({ blogs }) {
 }
 
 export default BlogList
-
-export const blogFields = graphql`
-  fragment blogFields on ContentfulBlog {
-    title
-    slug
-    publishDate
-    author {
-      name
-    }
-    description {
-      childMarkdownRemark {
-        excerpt
-        htmlAst
-      }
-    }
-    body {
-      childMarkdownRemark {
-        htmlAst
-      }
-    }
-    heroImage {
-      fluid(maxWidth: 1280) {
-        ...GatsbyContentfulFluid
-      }
-    }
-  }
-`
