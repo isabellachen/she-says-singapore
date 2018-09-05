@@ -1,27 +1,39 @@
 import React, { Component } from 'react'
+import rehypeReact from 'rehype-react'
+
+import Layout from '../components/Layout'
+import Head from '../components/Head'
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  components: {},
+}).Compiler
 
 export default class BlogPost extends Component {
   render() {
-    const { title, body } = this.props.data.contentfulBlog
+    const { data, location } = this.props
+    const { blog, site } = data
+    const htmlAst = blog.body.childMarkdownRemark.htmlAst
     return (
-      <div>
-        <div>{title}</div>
-        <div dangerouslySetInnerHTML={{ __html: body.markdown.html }} />
-      </div>
+      <Layout>
+        <Head
+          site={site}
+          pageTitle={blog.title}
+          path={location.pathname}
+          description={site.meta.description}
+        />
+        <div>{blog.title}</div>
+        {htmlAst && renderAst(htmlAst)}
+      </Layout>
     )
   }
 }
 
 export const blogPostQuery = graphql`
   query blogPostQuery($slug: String!) {
-    contentfulBlog(slug: { eq: $slug }) {
-      title
-      slug
-      body {
-        markdown: childMarkdownRemark {
-          html
-        }
-      }
+    ...siteMetaQuery
+    blog: contentfulBlog(slug: { eq: $slug }) {
+      ...blogFields
     }
   }
 `

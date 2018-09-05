@@ -27,6 +27,12 @@ export const blogFields = graphql`
     }
     description {
       childMarkdownRemark {
+        excerpt
+        htmlAst
+      }
+    }
+    body {
+      childMarkdownRemark {
         htmlAst
       }
     }
