@@ -11,7 +11,6 @@ const renderAst = new rehypeReact({
 }).Compiler
 
 const BlogItem = ({ blog }) => {
-  console.log('from blogitem: ', blog)
   const htmlAst = blog.description.childMarkdownRemark.htmlAst
   return (
     <StyledBlogItem>
