@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+
 import EventList from '../components/EventsList'
+import Layout from '../components/Layout'
 
 const getEvents = (status, events) => {
   return status === 'live'
@@ -11,11 +13,11 @@ const getEvents = (status, events) => {
 const EventsPage = ({ data }) => {
   const events = data.events.edges
   return (
-    <div>
+    <Layout>
       <EventList events={getEvents('live', events)} status={'live'} />
       <h1>completed events</h1>
       <EventList events={getEvents('completed', events)} status={'completed'} />
-    </div>
+    </Layout>
   )
 }
 

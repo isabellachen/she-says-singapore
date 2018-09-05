@@ -32,7 +32,7 @@ export const blogFields = graphql`
       name
     }
     description {
-      childMarkdownRemark {
+      markdown: childMarkdownRemark {
         excerpt
         htmlAst
       }
