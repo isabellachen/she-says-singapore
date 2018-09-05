@@ -11,13 +11,6 @@ import BlogsList from '../components/BlogsList'
 
 import Layout from '../components/Layout'
 
-const MainContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  background-color: black;
-  color: white;
-`
-
 //get gatsby node to render features and pages
 //link to about us
 //dynamically link to features
