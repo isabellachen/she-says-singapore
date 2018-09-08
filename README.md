@@ -20,5 +20,12 @@ Make sure all the plugins and their options are listed in the `gatsby-config.js`
 
 ### Develop Endpoints
 
-[Homepage](http://localhost:8000)
-[GraphQL Apollo Server](http://localhost:8000/___graphql)
+- [Homepage](http://localhost:8000)
+- [GraphQL Apollo Server](http://localhost:8000/___graphql)
+
+### Content Model Requirements
+
+- Every blog record needs to have an author reference. [Missing content breaks build](https://github.com/gatsbyjs/gatsby/issues/5512)
+- Do not delete author records, only edit them
+- If the nodes are not updating, delete .cache
+  ]
