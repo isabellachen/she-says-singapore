@@ -10,16 +10,28 @@ const TeamGrid = styled.div`
   justify-content: space-around;
 `
 
-const Cell = styled.div`
+const TeamMemberCell = styled.div`
   flex: 0 0 32%;
   height: 100px;
   margin-bottom: 5px;
   background-color: firebrick;
 `
 
+const ActivityGrid = styled.div`
+  @media (min-width: 800px) {
+    background-color: teal;
+  }
+`
+
+const ActivityCell = styled.div`
+  flex: 0 0 32%;
+  height: 100px;
+  margin-bottom: 5px;
+`
+
 const renderTeamMember = edges => {
   return edges.map(({ node }) => {
-    return <Cell>{node.name}</Cell>
+    return <TeamMemberCell key={node.id}>{node.name}</TeamMemberCell>
   })
 }
 
@@ -38,9 +50,12 @@ const About = ({ data, location }) => {
       />
       <div>{description}</div>
       <h1> What We Do </h1>
-      <p>{events}</p>
-      <p>{workshops}</p>
-      <p>{mentorship}</p>
+      <ActivityGrid>
+        <ActivityCell>{events}</ActivityCell>
+        <ActivityCell>{workshops}</ActivityCell>
+        <ActivityCell>{mentorship}</ActivityCell>
+      </ActivityGrid>
+      <h1>The Team</h1>
       <TeamGrid>{renderTeamMember(team.edges)}</TeamGrid>
     </Layout>
   )
