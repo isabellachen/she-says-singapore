@@ -1,26 +1,48 @@
 import React from 'react'
-import rehypeReact from 'rehype-react'
 import styled from 'styled-components'
 
-const FocusCircle = styled.div`
+import Head from '../components/Head'
+import Layout from '../components/Layout'
+
+const TeamGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+`
+
+const Cell = styled.div`
+  flex: 0 0 32%;
+  height: 100px;
+  margin-bottom: 5px;
   background-color: firebrick;
 `
-const renderAst = new rehypeReact({
-  createElement: React.createElement,
-  components: {
-    'focus-circle': FocusCircle,
-  },
-}).Compiler
 
-const About = ({ data }) => {
-  const { site, page } = data
-  const descHtmlAst = page.description.markdown.htmlAst
-  const bodyHtmlAst = page.body.markdown.htmlAst
+const renderTeamMember = edges => {
+  return edges.map(({ node }) => {
+    return <Cell>{node.name}</Cell>
+  })
+}
+
+const About = ({ data, location }) => {
+  const { site, page, team } = data
+  console.log(team)
+  const description = page.description.text
+  const { events, workshops, mentorship } = page
   return (
-    <div>
-      {descHtmlAst && renderAst(descHtmlAst)}
-      {bodyHtmlAst && renderAst(bodyHtmlAst)}
-    </div>
+    <Layout>
+      <Head
+        site={site}
+        pageTitle={'About'}
+        path={location.pathname}
+        description={description}
+      />
+      <div>{description}</div>
+      <h1> What We Do </h1>
+      <p>{events}</p>
+      <p>{workshops}</p>
+      <p>{mentorship}</p>
+      <TeamGrid>{renderTeamMember(team.edges)}</TeamGrid>
+    </Layout>
   )
 }
 
@@ -32,13 +54,22 @@ export const aboutPageQuery = graphql`
     page: contentfulPage(title: { eq: "About Us" }) {
       title
       description {
-        markdown: childMarkdownRemark {
-          htmlAst
-        }
+        text: description
       }
-      body {
-        markdown: childMarkdownRemark {
-          htmlAst
+      events: flexibleInfoField_01
+      workshops: flexibleInfoField_02
+      mentorship: flexibleInfoField_03
+    }
+    team: allContentfulPerson {
+      edges {
+        node {
+          name
+          title
+          cv {
+            markdown: childMarkdownRemark {
+              htmlAst
+            }
+          }
         }
       }
     }
