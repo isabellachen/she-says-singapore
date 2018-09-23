@@ -1,10 +1,12 @@
 import React from 'react'
+import Img from 'gatsby-image'
+
 import Head from '../components/Head'
 import Layout from '../components/Layout'
 
 const Mentorship = ({ data, location }) => {
   const { site, mentorship } = data
-  console.log(data)
+  const { title, description, heroImage } = mentorship
   return (
     <Layout>
       <Head
@@ -13,6 +15,8 @@ const Mentorship = ({ data, location }) => {
         path={location.pathname}
         description={site.meta.description}
       />
+      <Img sizes={heroImage.fluid} />
+      <p>{description.excerpt}</p>
     </Layout>
   )
 }

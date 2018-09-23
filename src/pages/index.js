@@ -10,10 +10,6 @@ import BlogsList from '../components/BlogsList'
 
 import Layout from '../components/Layout'
 
-//get gatsby node to render features and pages
-//link to about us
-//dynamically link to features
-
 const IndexPage = ({ data, location }) => {
   const { site, events, about, features, blogs } = data
   const eventsEdges = events.edges
