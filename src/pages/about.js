@@ -3,19 +3,7 @@ import styled from 'styled-components'
 
 import Head from '../components/Head'
 import Layout from '../components/Layout'
-
-const TeamGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-`
-
-const TeamMemberCell = styled.div`
-  flex: 0 0 32%;
-  height: 100px;
-  margin-bottom: 5px;
-  background-color: firebrick;
-`
+import TeamMemberGrid from '../components/TeamMemberGrid'
 
 const ActivityGrid = styled.div`
   @media (min-width: 800px) {
@@ -28,12 +16,6 @@ const ActivityCell = styled.div`
   height: 100px;
   margin-bottom: 5px;
 `
-
-const renderTeamMember = edges => {
-  return edges.map(({ node }) => {
-    return <TeamMemberCell key={node.id}>{node.name}</TeamMemberCell>
-  })
-}
 
 const About = ({ data, location }) => {
   const { site, page, team } = data
@@ -56,7 +38,7 @@ const About = ({ data, location }) => {
         <ActivityCell>{mentorship}</ActivityCell>
       </ActivityGrid>
       <h1>The Team</h1>
-      <TeamGrid>{renderTeamMember(team.edges)}</TeamGrid>
+      <TeamMemberGrid team={team} />
     </Layout>
   )
 }
@@ -78,14 +60,7 @@ export const aboutPageQuery = graphql`
     team: allContentfulPerson {
       edges {
         node {
-          name
-          id
-          title
-          cv {
-            markdown: childMarkdownRemark {
-              htmlAst
-            }
-          }
+          ...teamMemberFields
         }
       }
     }
