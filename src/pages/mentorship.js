@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import Head from '../components/Head'
 import Layout from '../components/Layout'
+import TeamMemberGrid from '../components/TeamMemberGrid'
 
 const SignUpWrapper = styled.div`
   display: flex;
@@ -13,14 +14,21 @@ const SignUp = styled.div`
   flex: 1;
 `
 
+const renderContactPerson = team => {
+  const contactPerson = team.edges.filter(
+    edge => edge.node.name === 'Meera Jane Nava'
+  )[0]
+  return contactPerson.node.name
+}
+
 const Mentorship = ({ data, location }) => {
-  const { site, mentorship } = data
+  const { site, mentorship, team } = data
   const { title, description, heroImage } = mentorship
   return (
     <Layout>
       <Head
         site={site}
-        pageTitle={'Mentorship'}
+        pageTitle={title}
         path={location.pathname}
         description={site.meta.description}
       />
@@ -30,6 +38,9 @@ const Mentorship = ({ data, location }) => {
         <SignUp>Be a Mentor</SignUp>
         <SignUp>Be a Mentee</SignUp>
       </SignUpWrapper>
+      <TeamMemberGrid team={team} fromMentorship={true} />
+      <h1>Questions?</h1>
+      <h3>{renderContactPerson(team)}</h3>
     </Layout>
   )
 }
@@ -41,6 +52,13 @@ export const mentorshipPageQuery = graphql`
     ...siteMetaQuery
     mentorship: contentfulFeature(slug: { eq: "she-says-mentorship" }) {
       ...featureFields
+    }
+    team: allContentfulPerson {
+      edges {
+        node {
+          ...teamMemberFields
+        }
+      }
     }
   }
 `

@@ -9,14 +9,17 @@ const Grid = styled.div`
   justify-content: space-around;
 `
 
-const renderTeamMembers = edges => {
-  return edges.map(({ node }) => {
+const renderTeamMembers = (members, fromMentorship) => {
+  if (fromMentorship) {
+    members = members.filter(edge => edge.node.mentor === true)
+  }
+  return members.map(({ node }) => {
     return <TeamMemberCell key={node.id} member={node} />
   })
 }
 
-const TeamMemberGrid = ({ team }) => {
-  return <Grid>{team && renderTeamMembers(team.edges)}</Grid>
+const TeamMemberGrid = ({ team, fromMentorship }) => {
+  return <Grid>{team && renderTeamMembers(team.edges, fromMentorship)}</Grid>
 }
 
 export default TeamMemberGrid
