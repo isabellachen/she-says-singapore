@@ -11,14 +11,29 @@ const renderAst = new rehypeReact({
 const StyledFeatureItem = styled.div``
 
 function FeatureItem({ feature }) {
-  const htmlAst = feature.description.childMarkdownRemark.htmlAst
+  const excerpt = feature.description.excerpt
   return (
     <StyledFeatureItem>
       <Img sizes={feature.heroImage.fluid} />
       <h1>{feature.title}</h1>
-      {htmlAst && renderAst(htmlAst)}
+      <p>{excerpt}</p>
     </StyledFeatureItem>
   )
 }
 
 export default FeatureItem
+
+export const featureFields = graphql`
+  fragment featureFields on ContentfulFeature {
+    title
+    slug
+    description {
+      excerpt: description
+    }
+    heroImage {
+      fluid(maxWidth: 1280) {
+        ...GatsbyContentfulFluid
+      }
+    }
+  }
+`

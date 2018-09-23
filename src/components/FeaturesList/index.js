@@ -24,20 +24,3 @@ function FeaturesList({ features }) {
 }
 
 export default FeaturesList
-
-export const featureFields = graphql`
-  fragment featureFields on ContentfulFeature {
-    title
-    slug
-    description {
-      childMarkdownRemark {
-        htmlAst
-      }
-    }
-    heroImage {
-      fluid(maxWidth: 1280) {
-        ...GatsbyContentfulFluid
-      }
-    }
-  }
-`
