@@ -5,14 +5,18 @@ import BlogItem from '../BlogItem'
 
 const StyledBlogsList = styled.div``
 
-const renderBlogs = edges => {
+const renderBlogs = (edges, fromIndex) => {
   return edges.map(({ node }) => {
-    return <BlogItem key={node.slug} blog={node} />
+    return <BlogItem key={node.slug} blog={node} fromIndex={fromIndex} />
   })
 }
 
-function BlogList({ blogs }) {
-  return <StyledBlogsList>{blogs && renderBlogs(blogs.edges)}</StyledBlogsList>
+function BlogList({ blogs, fromIndex }) {
+  return (
+    <StyledBlogsList>
+      {blogs && renderBlogs(blogs.edges, fromIndex)}
+    </StyledBlogsList>
+  )
 }
 
 export default BlogList

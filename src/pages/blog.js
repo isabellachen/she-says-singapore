@@ -3,10 +3,21 @@ import styled from 'styled-components'
 
 import Head from '../components/Head'
 import Layout from '../components/Layout'
+import BlogsList from '../components/BlogsList'
 
 const Blog = ({ data, location }) => {
-  console.log(data, location)
-  return <div>BLOG PAGE</div>
+  const { site, blogs } = data
+  return (
+    <Layout>
+      <Head
+        site={site}
+        pageTitle={'Blog'}
+        path={location.pathname}
+        description={site.meta.description}
+      />
+      <BlogsList blogs={blogs} />
+    </Layout>
+  )
 }
 
 export default Blog

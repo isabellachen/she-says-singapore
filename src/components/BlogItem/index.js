@@ -10,13 +10,16 @@ const renderAst = new rehypeReact({
   components: {},
 }).Compiler
 
-const BlogItem = ({ blog }) => {
-  const htmlAst = blog.description.markdown.htmlAst
+const BlogItem = ({ blog, fromIndex }) => {
+  const description = blog.description.excerpt
+  const body = blog.body.markdown.htmlAst
+
   return (
     <StyledBlogItem>
       <Img sizes={blog.heroImage.fluid} />
       <h1>{blog.title}</h1>
-      {htmlAst && renderAst(htmlAst)}
+      {description}
+      {!fromIndex && body && renderAst(body)}
     </StyledBlogItem>
   )
 }
@@ -32,10 +35,7 @@ export const blogFields = graphql`
       name
     }
     description {
-      markdown: childMarkdownRemark {
-        excerpt
-        htmlAst
-      }
+      excerpt: description
     }
     body {
       markdown: childMarkdownRemark {

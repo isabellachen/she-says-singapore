@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
-import styled from 'styled-components'
 
 import Head from '../components/Head'
 import EventList from '../components/EventsList'
@@ -29,7 +28,7 @@ const IndexPage = ({ data, location }) => {
       <EventList events={eventsEdges} status={'live'} />
       <FrontQuote about={about} />
       <FeaturesList features={features} />
-      <BlogsList blogs={blogs} />
+      <BlogsList blogs={blogs} fromIndex={true} />
       <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   )
