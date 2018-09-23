@@ -31,6 +31,7 @@ const ActivityCell = styled.div`
 
 const renderTeamMember = edges => {
   return edges.map(({ node }) => {
+    console.log(node)
     return <TeamMemberCell key={node.id}>{node.name}</TeamMemberCell>
   })
 }
@@ -79,6 +80,7 @@ export const aboutPageQuery = graphql`
       edges {
         node {
           name
+          id
           title
           cv {
             markdown: childMarkdownRemark {
