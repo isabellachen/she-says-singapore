@@ -9,7 +9,7 @@ const NavElements = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: firebrick;
+  background-color: gold;
   width: 100%;
   height: 2rem;
   z-index: 1000;

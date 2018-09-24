@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import styled, { injectGlobal } from 'styled-components'
@@ -8,11 +8,19 @@ import favicon from '../../assets/favicon.png'
 import NavBar from '../NavBar'
 
 injectGlobal`
+@import url(‘https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+
   body {
     margin: 0;
     padding: 0;
     background-color: black;
     color: white;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1 {
+    font-family: 'Open Sans';
+    font-style: medium;
   }
 
   *,
