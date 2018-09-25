@@ -19,8 +19,8 @@ const NavElements = styled.div`
 
 const Menu = styled.div`
   position: absolute;
-  background-color: black;
-  opacity: 0.5;
+  background-color: gold;
+  border-top: 5px solid black;
   top: 3rem;
   width: 100%;
   z-index: 100;
@@ -28,8 +28,15 @@ const Menu = styled.div`
   transform: ${props => (props.isOpen ? 'none' : 'translateY(-100%)')};
   & > ul {
     margin: 0;
-    padding: 0;
+    padding: 10px;
     list-style: none;
+    & > li {
+      font-size: 1.25rem;
+      color: black;
+      border-bottom: 1px solid black;
+      font-weight: 300;
+      margin-bottom: 5px;
+    }
   }
 `
 
