@@ -28,6 +28,11 @@ export const eventQuery = graphql`
     }
     status
     url
+    img: logo {
+      original {
+        url
+      }
+    }
     venue: venue__NODE {
       name
       address {

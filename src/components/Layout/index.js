@@ -8,7 +8,7 @@ import favicon from '../../assets/favicon.png'
 import NavBar from '../NavBar'
 
 injectGlobal`
-@import url(‘https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+@import url(‘https://fonts.googleapis.com/css?family=Notable|Open+Sans|Roboto');
 
   body {
     margin: 0;
