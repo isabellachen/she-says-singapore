@@ -14,6 +14,12 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-transformer-remark',
     {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`roboto`, `lato`],
+      },
+    },
+    {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: contentful.spaceId,

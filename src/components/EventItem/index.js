@@ -22,7 +22,7 @@ const EventSubHeading = styled.h3`
 
 const Venue = styled.address`
   & > address {
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     margin: 0 0 5px 0;
     border-bottom: 1px solid gold;
   }

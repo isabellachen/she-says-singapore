@@ -15,7 +15,7 @@ injectGlobal`
     padding: 0;
     background-color: black;
     color: white;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'lato', sans-serif;
   }
 
   h1 {
