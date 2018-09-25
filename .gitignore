@@ -8,3 +8,5 @@ src/assets/private
 /public
 /private
 .DS_Store
+
+*.sketch
