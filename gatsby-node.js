@@ -32,7 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
     response.data.content.edges.forEach(({ node }) => {
       createPage({
-        path: node.slug,
+        path: pathPrefix + node.slug,
         component,
         context: {
           slug: node.slug,
