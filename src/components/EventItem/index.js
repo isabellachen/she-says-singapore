@@ -1,30 +1,34 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import moment from 'moment'
 import styled from 'styled-components'
 
-import { Title } from '../Styles'
+import { Title, Button } from '../Styles'
 
 const Event = styled.div`
   margin: 0 10px 0 10px;
   display: flex;
   flex-direction: column;
-  border-bottom: 5px solid gold;
 `
 const EventDetails = styled.div``
 
 const EventSubHeading = styled.h3`
-  margin: 5px 0 15px 0;
+  margin: 5px 0 0 0;
   padding: 5px 0 5px 5px;
-  background-color: gold;
   color: black;
   font-size: 1.25rem;
+  border-top: 1px solid gold;
+  border-bottom: 4px solid gold;
 `
 
 const Venue = styled.address`
+  font-style: normal;
+  & > h2 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin: 5px 0 0 0;
+  }
   & > address {
-    padding-bottom: 15px;
-    margin: 0 0 5px 0;
-    border-bottom: 1px solid gold;
+    padding-bottom: 5px;
   }
 `
 
@@ -43,37 +47,33 @@ const DateTime = styled.div`
 `
 
 const renderButton = status => {
-  return status === 'live' ? <button>register</button> : <button>view</button>
+  return status === 'live' ? <Button>register</Button> : <button>view</button>
 }
 
 const renderAddress = event => {
+  const base = (
+    <Fragment>
+      {event.venue.address.address_1}
+      <br />
+      {event.venue.address.city}
+      <br />
+      {event.venue.address.postal_code}
+    </Fragment>
+  )
   if (event.venue.address.address_2) {
     return (
       <address>
         {event.venue.address.address_2}
         <br />
-        {event.venue.address.address_1}
-        <br />
-        {event.venue.address.city}
-        <br />
-        {event.venue.address.postal_code}
+        {base}
       </address>
     )
   } else {
-    return (
-      <address>
-        {event.venue.address.address_1}
-        <br />
-        {event.venue.address.city}
-        <br />
-        {event.venue.address.postal_code}
-      </address>
-    )
+    return <address>{base}</address>
   }
 }
 
 const EventItem = ({ event, status }) => {
-  console.log(event)
   return (
     <Event>
       <Title>{event.name.text}</Title>
@@ -85,12 +85,13 @@ const EventItem = ({ event, status }) => {
           <span>{moment(event.end.local).format('h:mm a')}</span>
         </DateTime>
         <Venue>
-          <EventSubHeading>{event.venue.name}</EventSubHeading>
+          <EventSubHeading>Where</EventSubHeading>
+          <h2>{event.venue.name}</h2>
           {renderAddress(event)}
         </Venue>
         <EventBody>
           <EventSubHeading>What's On</EventSubHeading>
-          {event.description.text}
+          <p>{event.description.text}</p>
         </EventBody>
         {renderButton(status)}
       </EventDetails>

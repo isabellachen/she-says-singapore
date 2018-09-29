@@ -8,14 +8,13 @@ import favicon from '../../assets/favicon.png'
 import NavBar from '../NavBar'
 
 injectGlobal`
-@import url(‘https://fonts.googleapis.com/css?family=Notable|Open+Sans|Roboto');
 
   body {
     margin: 0;
     padding: 0;
-    background-color: black;
-    color: white;
-    font-family: 'lato', sans-serif;
+    background-color: white;
+    color: black;
+    font-family: 'Roboto', sans-serif;
   }
 
   h1 {

@@ -24,7 +24,7 @@ const Menu = styled.div`
   top: 3rem;
   width: 100%;
   z-index: 100;
-  transition: transform 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 400ms ease;
   transform: ${props => (props.isOpen ? 'none' : 'translateY(-100%)')};
   & > ul {
     margin: 0;
@@ -39,7 +39,7 @@ const Menu = styled.div`
     }
   }
 `
-
+// cubic - bezier(0.68, -0.55, 0.265, 1.55)
 const Icon = styled.svg`
   width: 83px;
   height: 54px;
@@ -91,7 +91,7 @@ export default class NavBar extends Component {
           <Squeeze
             onClick={this.toggleMenu}
             active={this.state.isOpen}
-            color={'#FFF'}
+            color={'#000'}
           />
         </NavElements>
         <Menu isOpen={this.state.isOpen}>
