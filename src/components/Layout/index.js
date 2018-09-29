@@ -41,10 +41,10 @@ const Content = styled.div`
 
 const Footer = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: gold;
   border-top: solid 4px black;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 2rem;
 `
