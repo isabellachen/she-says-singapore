@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
 const Head = ({ site, pageTitle, path, description }) => {
   const { title: siteTitle, url } = site.meta
@@ -16,3 +17,15 @@ const Head = ({ site, pageTitle, path, description }) => {
 }
 
 export default Head
+
+export const siteMetaQuery = graphql`
+  fragment siteMetaQuery on Query {
+    site {
+      meta: siteMetadata {
+        title
+        description
+        url
+      }
+    }
+  }
+`
