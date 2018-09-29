@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { graphql } from 'gatsby'
 import moment from 'moment'
 import styled from 'styled-components'
 
@@ -100,3 +101,36 @@ const EventItem = ({ event, status }) => {
 }
 
 export default EventItem
+
+export const eventQuery = graphql`
+  fragment eventFields on EventbriteEvents {
+    name {
+      text
+    }
+    start {
+      local
+    }
+    end {
+      local
+    }
+    description {
+      text
+    }
+    status
+    url
+    img: logo {
+      original {
+        url
+      }
+    }
+    venue: venue__NODE {
+      name
+      address {
+        address_1
+        address_2
+        postal_code
+        city
+      }
+    }
+  }
+`
