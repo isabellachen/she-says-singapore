@@ -40,7 +40,11 @@ const Content = styled.div`
 `
 
 const Footer = styled.div`
-  background-color: firebrick;
+  display: flex;
+  background-color: gold;
+  border-top: solid 4px black;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 2rem;
 `
