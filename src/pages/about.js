@@ -19,7 +19,6 @@ const ActivityCell = styled.div`
 
 const About = ({ data, location }) => {
   const { site, page, team } = data
-  console.log(team)
   const description = page.description.text
   const { events, workshops, mentorship } = page
   return (

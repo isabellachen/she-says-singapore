@@ -81,7 +81,6 @@ const renderAddress = event => {
 }
 
 const EventItem = ({ event, status }) => {
-  console.log(event)
   return (
     <Event>
       <Title>{event.name.text}</Title>
@@ -94,12 +93,12 @@ const EventItem = ({ event, status }) => {
         </DateTime>
         <Venue>
           <EventSubHeading>Where</EventSubHeading>
-          <h2>{event.venue.name}</h2>
+          <h2>{event.venue && event.venue.name}</h2>
           {renderAddress(event)}
         </Venue>
         <EventBody>
           <EventSubHeading>What's On</EventSubHeading>
-          <p>{event.description.text}</p>
+          <p>{event.description && event.description.text}</p>
         </EventBody>
         {renderButton(status, event.url)}
       </EventDetails>

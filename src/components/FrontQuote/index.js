@@ -26,7 +26,7 @@ const FrontQuote = ({ about }) => {
   return (
     <QuoteWrapper>
       <SplashTitle>We Are</SplashTitle>
-      <p>{htmlAst && renderAst(htmlAst)}</p>
+      <div>{htmlAst && renderAst(htmlAst)}</div>
     </QuoteWrapper>
   )
 }

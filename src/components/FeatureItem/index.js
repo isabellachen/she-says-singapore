@@ -41,6 +41,15 @@ const FeatureContent = styled.div`
   }
 `
 
+const renderLink = slug => {
+  const link = `/${slug}`
+  if (slug === 'the-drum-she-says-says') {
+    return <a href="https://www.thedrum.com/topics/shesays">Find Out More</a>
+  } else {
+    return <Link to={link}>Find Out More</Link>
+  }
+}
+
 function FeatureItem({ feature }) {
   const excerpt = feature.description.excerpt
   const link = `/${feature.slug}`
@@ -53,9 +62,7 @@ function FeatureItem({ feature }) {
         <Img sizes={feature.heroImage.fluid} />
         <p>{excerpt}</p>
       </FeatureContent>
-      <Button>
-        <Link to={link}>Find Out More</Link>
-      </Button>
+      <Button>{renderLink(feature.slug)}</Button>
     </StyledFeatureItem>
   )
 }
