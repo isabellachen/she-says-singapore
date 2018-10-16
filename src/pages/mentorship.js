@@ -50,7 +50,7 @@ export default Mentorship
 export const mentorshipPageQuery = graphql`
   query MentorshipQuery {
     ...siteMetaQuery
-    mentorship: contentfulFeature(slug: { eq: "she-says-mentorship" }) {
+    mentorship: contentfulFeature(slug: { eq: "mentorship" }) {
       ...featureFields
     }
     team: allContentfulPerson {
