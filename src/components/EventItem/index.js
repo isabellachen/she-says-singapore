@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import moment from 'moment'
-import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import { Title, Button } from '../Styles'
@@ -51,7 +50,7 @@ const DateTime = styled.div`
 const renderButton = (status, url) => {
   return status === 'live' ? (
     <Button>
-      <a>register</a>
+      <a href={url}>register</a>
     </Button>
   ) : (
     <button>view</button>

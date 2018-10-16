@@ -14,7 +14,7 @@ export const SplashTitle = styled.h1`
   border-bottom: 1px solid white;
 `
 
-export const Button = styled(Link)`
+export const Button = styled.button`
   background-color: gold;
   border: none;
   width: 100%;
@@ -23,11 +23,18 @@ export const Button = styled(Link)`
   font-family: 'Roboto';
   text-transform: uppercase;
   font-weight: bold;
-  padding: 10px 10px;
+  padding: 10px 0;
   margin: 0 0 15px 0;
   border-radius: 8px;
   text-decoration: none;
+  & > a {
+    display: block;
+    text-decoration: none;
+  }
   &:hover {
-    border: 2px solid black;
+    & > a {
+      background-color: black;
+      color: white;
+    }
   }
 `

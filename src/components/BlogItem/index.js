@@ -4,6 +4,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import rehypeReact from 'rehype-react'
 import { Button } from '../Styles'
+import Link from 'gatsby-link'
 
 const StyledBlogItem = styled.div`
   margin: 0 10px 30px 10px;
@@ -26,7 +27,7 @@ const renderAst = new rehypeReact({
 const BlogItem = ({ blog, fromIndex }) => {
   const description = blog.description.excerpt
   const body = blog.body.markdown.htmlAst
-
+  const link = `/blog/${blog.slug}`
   return (
     <StyledBlogItem>
       <Img sizes={blog.heroImage.fluid} />
@@ -35,7 +36,9 @@ const BlogItem = ({ blog, fromIndex }) => {
         {description}
         {!fromIndex && body && renderAst(body)}
       </Content>
-      <Button>Find Out More</Button>
+      <Button>
+        <Link to={link}>Find Out More</Link>
+      </Button>
     </StyledBlogItem>
   )
 }
