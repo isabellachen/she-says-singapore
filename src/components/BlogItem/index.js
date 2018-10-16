@@ -6,11 +6,11 @@ import rehypeReact from 'rehype-react'
 import { Button } from '../Styles'
 
 const StyledBlogItem = styled.div`
-  margin: 0 10px 0 10px;
+  margin: 0 10px 30px 10px;
 `
 
 const Content = styled.div`
-  margin-bottom: 5px;
+  margin-bottom: 20px;
   & > h1 {
     text-decoration: underline;
     text-decoration-color: gold;

@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import EventItem from '../EventItem'
 import styled from 'styled-components'
 
-const StyledEventsList = styled.div``
+const StyledEventsList = styled.div`
+  margin-bottom: 30px;
+`
 
 export default class EventList extends Component {
   renderEventItems = events => {

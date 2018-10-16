@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import moment from 'moment'
+import { Link } from 'gatsby'
 import styled from 'styled-components'
 
 import { Title, Button } from '../Styles'
 
 const Event = styled.div`
-  margin: 0 10px 0 10px;
+  margin: 0 10px 10px 10px;
   display: flex;
   flex-direction: column;
 `
@@ -47,8 +48,14 @@ const DateTime = styled.div`
   }
 `
 
-const renderButton = status => {
-  return status === 'live' ? <Button>register</Button> : <button>view</button>
+const renderButton = (status, url) => {
+  return status === 'live' ? (
+    <Button>
+      <a>register</a>
+    </Button>
+  ) : (
+    <button>view</button>
+  )
 }
 
 const renderAddress = event => {
@@ -94,7 +101,7 @@ const EventItem = ({ event, status }) => {
           <EventSubHeading>What's On</EventSubHeading>
           <p>{event.description.text}</p>
         </EventBody>
-        {renderButton(status)}
+        {renderButton(status, event.url)}
       </EventDetails>
     </Event>
   )
