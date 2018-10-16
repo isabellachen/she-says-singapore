@@ -62,9 +62,9 @@ export default class NavBar extends Component {
             <g
               id="Page-1"
               stroke="none"
-              stroke-width="1"
+              strokeWidth="1"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             >
               <g id="A4" transform="translate(-221.000000, -323.000000)">
                 <g id="Group" transform="translate(221.000000, 323.000000)">
@@ -75,9 +75,9 @@ export default class NavBar extends Component {
                   />
                   <text
                     id="SG"
-                    font-family="OpenSans-Bold, Open Sans"
-                    font-size="72"
-                    font-weight="bold"
+                    fontFamily="OpenSans-Bold, Open Sans"
+                    fontSize="72"
+                    fontWeight="bold"
                     fill="#FFD700"
                   >
                     <tspan x="31" y="77">
