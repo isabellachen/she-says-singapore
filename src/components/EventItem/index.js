@@ -81,10 +81,11 @@ const renderAddress = event => {
 }
 
 const EventItem = ({ event, status }) => {
+  console.log(event)
   return (
     <Event>
       <Title>{event.name.text}</Title>
-      <EventBriteImg src={event.img.original.url} />
+      <EventBriteImg src={event.img && event.img.original.url} />
       <EventDetails>
         <DateTime>
           <div>{moment(event.start.local).format('MMMM DD YYYY')}</div>
