@@ -1,6 +1,8 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
+import { Button } from '../Styles'
+import Link from 'gatsby-link'
 
 const StyledFeatureItem = styled.div`
   position: relative;
@@ -9,10 +11,9 @@ const StyledFeatureItem = styled.div`
 const FeatureTitle = styled.div`
   position: absolute;
   background-color: black;
-  color: white;
   z-index: 9999;
   font-size: 1.25rem;
-  padding: 10px;
+  padding: 10px 0;
   top: -8px;
   margin-left: auto;
   margin-right: auto;
@@ -21,6 +22,16 @@ const FeatureTitle = styled.div`
   right: 0;
   text-align: center;
   -webkit-box-shadow: 0 2px 5px #000;
+`
+
+const LinkedTitle = styled(Link)`
+  color: white;
+  text-decoration: none;
+  display: block;
+  &:hover {
+    background-color: gold;
+    color: black;
+  }
 `
 
 const FeatureContent = styled.div`
@@ -32,13 +43,19 @@ const FeatureContent = styled.div`
 
 function FeatureItem({ feature }) {
   const excerpt = feature.description.excerpt
+  const link = `/${feature.slug}`
   return (
     <StyledFeatureItem>
-      <FeatureTitle>{feature.title}</FeatureTitle>
+      <FeatureTitle>
+        <LinkedTitle>{feature.title}</LinkedTitle>
+      </FeatureTitle>
       <FeatureContent>
         <Img sizes={feature.heroImage.fluid} />
         <p>{excerpt}</p>
       </FeatureContent>
+      <Button>
+        <Link to={link}>Find Out More</Link>
+      </Button>
     </StyledFeatureItem>
   )
 }
