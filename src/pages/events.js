@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import EventList from '../components/Event'
+import { EventList } from '../components/Event'
 import Layout from '../components/Layout'
 
 const getEvents = (status, events) => {

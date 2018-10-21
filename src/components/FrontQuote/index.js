@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import rehypeReact from 'rehype-react'
 import styled from 'styled-components'
 
-import { SplashTitle } from '../styles'
+import { SplashTitle } from '../Styles'
 
 const QuoteWrapper = styled.div`
   margin-top: 10px;

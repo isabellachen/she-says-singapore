@@ -1,9 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import Head from '../components/Head'
 import Layout from '../components/Layout'
-import BlogsList from '../components/Blog'
+import { BlogList } from '../components/Blog'
 
 const Blog = ({ data, location }) => {
   const { site, blogs } = data
@@ -15,7 +14,7 @@ const Blog = ({ data, location }) => {
         path={location.pathname}
         description={site.meta.description}
       />
-      <BlogsList blogs={blogs} />
+      <BlogList blogs={blogs} />
     </Layout>
   )
 }
