@@ -22,16 +22,7 @@ const FeatureTitle = styled.div`
   right: 0;
   text-align: center;
   -webkit-box-shadow: 0 2px 5px #000;
-`
-
-const LinkedTitle = styled(Link)`
   color: white;
-  text-decoration: none;
-  display: block;
-  &:hover {
-    background-color: gold;
-    color: black;
-  }
 `
 
 const FeatureContent = styled.div`
@@ -42,7 +33,7 @@ const FeatureContent = styled.div`
 `
 
 const renderLink = slug => {
-  const link = `/${slug}`
+  const link = `/${slug}/`
   if (slug === 'the-drum-she-says-says') {
     return <a href="https://www.thedrum.com/topics/shesays">Find Out More</a>
   } else {
@@ -52,12 +43,9 @@ const renderLink = slug => {
 
 function FeatureItem({ feature }) {
   const excerpt = feature.description.excerpt
-  const link = `/${feature.slug}`
   return (
     <StyledFeatureItem>
-      <FeatureTitle>
-        <LinkedTitle>{feature.title}</LinkedTitle>
-      </FeatureTitle>
+      <FeatureTitle>{feature.title}</FeatureTitle>
       <FeatureContent>
         <Img sizes={feature.heroImage.fluid} />
         <p>{excerpt}</p>
