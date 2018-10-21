@@ -2,7 +2,7 @@
 .cache
 node_modules
 yarn-error.log
-src/assets/private
+src/assets/placeholders
 
 # Build directory
 /public

@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`roboto`, `lato`, `permanent marker`],
+        fonts: [`roboto`, `lato`, `permanent marker`, `open sans`],
       },
     },
     {
