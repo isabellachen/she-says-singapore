@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import Head from '../components/Head'
 import { EventList } from '../components/Event'
 import FrontQuote from '../components/FrontQuote'
-import FeaturesList from '../components/FeaturesList'
+import { FeatureList } from '../components/Feature'
 import { BlogList } from '../components/Blog'
 
 import Layout from '../components/Layout'
@@ -23,7 +23,7 @@ const IndexPage = ({ data, location }) => {
       />
       <EventList events={eventsEdges} status={'live'} />
       <FrontQuote about={about} />
-      <FeaturesList features={features} />
+      <FeatureList features={features} />
       <BlogList blogs={blogs} fromIndex={true} />
       <Link to="/page-2/">Go to page 2</Link>
     </Layout>

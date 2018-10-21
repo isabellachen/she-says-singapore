@@ -2,9 +2,9 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 
-import FeatureItem from '../FeatureItem'
+import FeatureItem from './FeatureItem'
 
-const StyledFeaturesList = styled.div`
+const StyledFeatureList = styled.div`
   display: flex;
   flex-direction: column;
 `
@@ -15,12 +15,12 @@ const renderFeatures = edges => {
   })
 }
 
-function FeaturesList({ features }) {
+function FeatureList({ features }) {
   return (
-    <StyledFeaturesList>
+    <StyledFeatureList>
       {features && renderFeatures(features.edges)}
-    </StyledFeaturesList>
+    </StyledFeatureList>
   )
 }
 
-export default FeaturesList
+export default FeatureList
