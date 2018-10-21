@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import EventItem from '../EventItem'
+import EventItem from './EventItem'
 import styled from 'styled-components'
 
 const StyledEventsList = styled.div`

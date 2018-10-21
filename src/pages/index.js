@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import { graphql } from 'gatsby'
 
 import Head from '../components/Head'
-import EventList from '../components/EventsList'
+import { EventList } from '../components/Event'
 import FrontQuote from '../components/FrontQuote'
 import FeaturesList from '../components/FeaturesList'
 import { BlogList } from '../components/Blog'
