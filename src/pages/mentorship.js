@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import Head from '../components/Head'
 import Layout from '../components/Layout'
-import TeamMemberGrid from '../components/TeamMemberGrid'
+import { TeamMemberGrid } from '../components/TeamMember'
 
 const SignUpWrapper = styled.div`
   display: flex;
