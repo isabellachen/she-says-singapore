@@ -32,6 +32,10 @@ const FeatureContent = styled.div`
   }
 `
 
+const ButtonContainer = styled.div`
+  margin: 0 10px 20px 10px;
+`
+
 const renderLink = slug => {
   const link = `/${slug}/`
   if (slug === 'the-drum-she-says-says') {
@@ -50,7 +54,9 @@ function FeatureItem({ feature }) {
         <Img sizes={feature.heroImage.fluid} />
         <p>{excerpt}</p>
       </FeatureContent>
-      <Button>{renderLink(feature.slug)}</Button>
+      <ButtonContainer>
+        <Button>{renderLink(feature.slug)}</Button>
+      </ButtonContainer>
     </StyledFeatureItem>
   )
 }
