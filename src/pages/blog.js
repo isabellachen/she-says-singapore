@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import Head from '../components/Head'
 import Layout from '../components/Layout'
-import BlogsList from '../components/BlogsList'
+import BlogsList from '../components/Blog'
 
 const Blog = ({ data, location }) => {
   const { site, blogs } = data

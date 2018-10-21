@@ -6,7 +6,7 @@ import Head from '../components/Head'
 import EventList from '../components/EventsList'
 import FrontQuote from '../components/FrontQuote'
 import FeaturesList from '../components/FeaturesList'
-import BlogsList from '../components/BlogsList'
+import { BlogList } from '../components/Blog'
 
 import Layout from '../components/Layout'
 
@@ -24,7 +24,7 @@ const IndexPage = ({ data, location }) => {
       <EventList events={eventsEdges} status={'live'} />
       <FrontQuote about={about} />
       <FeaturesList features={features} />
-      <BlogsList blogs={blogs} fromIndex={true} />
+      <BlogList blogs={blogs} fromIndex={true} />
       <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   )

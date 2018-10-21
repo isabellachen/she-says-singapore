@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import BlogItem from '../BlogItem'
+import BlogItem from './BlogItem'
 
 const StyledBlogsList = styled.div``
 const BlogHeader = styled.div`
