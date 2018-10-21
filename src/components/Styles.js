@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Link from 'gatsby-link'
 
 export const Title = styled.h1`
   font-family: 'Roboto', sans-serif;
@@ -24,17 +23,18 @@ export const Button = styled.button`
   text-transform: uppercase;
   font-weight: bold;
   padding: 10px 0;
-  margin: 0 0 15px 0;
   border-radius: 8px;
   text-decoration: none;
   & > a {
     display: block;
     text-decoration: none;
-  }
-  &:hover {
-    & > a {
+    color: black;
+    &:hover {
       background-color: black;
       color: white;
+    }
+    &:visited {
+      color: indigo;
     }
   }
 `
