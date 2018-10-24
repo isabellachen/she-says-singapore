@@ -13,7 +13,8 @@ const renderTeamMembers = (members, fromMentorship) => {
   if (fromMentorship) {
     members = members.filter(edge => edge.node.mentor === true)
   }
-  return members.map(({ node }) => {
+  const sorted = members.sort((a, b) => a.node.sorting - b.node.sorting)
+  return sorted.map(({ node }) => {
     return <TeamMemberCell key={node.id} member={node} />
   })
 }

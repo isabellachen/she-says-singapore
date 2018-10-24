@@ -1,15 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
+import Img from 'gatsby-image'
 
 const Cell = styled.div`
   flex: 0 0 32%;
-  height: 100px;
   margin-bottom: 5px;
   background-color: firebrick;
 `
 
 const TeamMemberCell = ({ member }) => {
-  return <Cell>{member.name}</Cell>
+  return (
+    <Cell>
+      <Img sizes={member.profile.fluid} />
+      <span>{member.name}</span>
+    </Cell>
+  )
 }
 
 export default TeamMemberCell
@@ -20,6 +25,12 @@ export const teamMemberFields = graphql`
     id
     title
     mentor
+    sorting
+    profile {
+      fluid(maxWidth: 1280) {
+        ...GatsbyContentfulFluid
+      }
+    }
     cv {
       markdown: childMarkdownRemark {
         htmlAst
