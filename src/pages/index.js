@@ -25,7 +25,6 @@ const IndexPage = ({ data, location }) => {
       <FrontQuote about={about} />
       <FeatureList features={features} />
       <BlogList blogs={blogs} fromIndex={true} />
-      <Link to="/page-2/">Go to page 2</Link>
     </Layout>
   )
 }

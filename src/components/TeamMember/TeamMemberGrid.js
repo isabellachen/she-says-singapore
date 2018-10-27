@@ -5,8 +5,14 @@ import TeamMemberCell from './TeamMemberCell'
 
 const Grid = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 40px;
+  @media (min-width: 400px) {
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+  }
 `
 
 const renderTeamMembers = (members, fromMentorship) => {
