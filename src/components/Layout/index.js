@@ -37,7 +37,7 @@ const Container = styled.div`
 `
 
 const Content = styled.div`
-  flex: 1;
+  flex: 1 0 auto;
 `
 
 const Footer = styled.div`
@@ -47,7 +47,7 @@ const Footer = styled.div`
   background-color: gold;
   border-top: solid 4px black;
   width: 100%;
-  height: 2rem;
+  height: 5vh;
 `
 
 const Layout = ({ children }) => (

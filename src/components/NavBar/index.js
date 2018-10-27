@@ -31,9 +31,10 @@ const Menu = styled.div`
     padding: 10px;
     list-style: none;
     & > li {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
+      padding: 5px;
       color: black;
-      border-bottom: 1px solid black;
+      border-bottom: 2px solid #e5c516;
       font-weight: 300;
       margin-bottom: 5px;
     }
