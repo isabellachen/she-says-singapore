@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { Squeeze } from 'react-burgers'
+import Link from 'gatsby-link'
 
 const NavContainer = styled.div`
   position: relative;
@@ -97,12 +98,24 @@ export default class NavBar extends Component {
         </NavElements>
         <Menu isOpen={this.state.isOpen}>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Events</li>
-            <li>Blog</li>
-            <li>Mentorship</li>
-            <li>Join Us</li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/about">About</Link>
+            </li>
+            <li>
+              <Link to="/events">Events</Link>
+            </li>
+            <li>
+              <Link to="/blog">Blog</Link>
+            </li>
+            <li>
+              <Link to="/mentorship">Mentorship</Link>
+            </li>
+            <li>
+              <Link to="/#join-us">Join Us</Link>
+            </li>
           </ul>
         </Menu>
       </NavContainer>
