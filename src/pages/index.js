@@ -24,7 +24,9 @@ const IndexPage = ({ data, location }) => {
       <EventList events={eventsEdges} status={'live'} />
       <FrontQuote about={about} />
       <FeatureList features={features} />
-      <JoinUs />
+      <div id="join-us">
+        <JoinUs />
+      </div>
       <BlogList blogs={blogs} fromIndex={true} />
     </Layout>
   )
