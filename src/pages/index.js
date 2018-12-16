@@ -10,9 +10,15 @@ import JoinUs from '../components/JoinUs'
 
 import Layout from '../components/Layout'
 
+const renderLiveEvents = eventsEdges => {
+  if (eventsEdges) {
+    return <EventList events={eventsEdges} status={'live'} />
+  }
+}
+
 const IndexPage = ({ data, location }) => {
   const { site, events, about, features, blogs } = data
-  const eventsEdges = events.edges
+  const eventsEdges = events ? events.edges : null
   return (
     <Layout>
       <Head
@@ -21,7 +27,7 @@ const IndexPage = ({ data, location }) => {
         path={location.pathname}
         description={site.meta.description}
       />
-      <EventList events={eventsEdges} status={'live'} />
+      {renderLiveEvents(eventsEdges)}
       <FrontQuote about={about} />
       <FeatureList features={features} />
       <div id="join-us">

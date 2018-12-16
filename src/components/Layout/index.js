@@ -4,10 +4,15 @@ import Helmet from 'react-helmet'
 import styled, { injectGlobal } from 'styled-components'
 
 import favicon from '../../assets/favicon.png'
+import lulo from '../../fonts/lulo-clean-bold.otf'
 
 import NavBar from '../NavBar'
 
 injectGlobal`
+  @font-face {
+    font-family: 'Lulo';
+    src: url(${lulo}) format('opentype');
+  }
 
   body {
     margin: 0;
